@@ -10,7 +10,7 @@
 
 ## change to your three word Cribl Cloud org id, and the port you configured in the Cribl OpenTelemetry Source
 exporters:
-  otlphttp/cribl:
+  otlp_http/cribl:
     endpoint: "http://default.main.your-org-id.cribl.cloud:20010"
     tls:
       insecure: false
@@ -19,8 +19,8 @@ exporters:
 service:
   pipelines:
     logs:
-      exporters: [opensearch, debug,  otlphttp/cribl]
+      exporters: [opensearch, debug,  otlp_http/cribl]
     traces:
-      exporters: [spanmetrics, otlphttp/cribl]
+      exporters: [spanmetrics, otlp_http/cribl]
     metrics:
-      exporters: [otlphttp/prometheus, debug, otlphttp/cribl]
+      exporters: [otlp_http/prometheus, debug, otlp_http/cribl]
