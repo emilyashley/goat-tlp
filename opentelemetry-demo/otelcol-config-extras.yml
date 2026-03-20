@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# extra settings to be merged into OpenTelemetry Collector configuration
+# do not delete this file
+
+## Example configuration for sending data to your own OTLP HTTP backend
+## Note: the spanmetrics exporter must be included in the exporters array
+## if overriding the traces pipeline.
+##
+
+## change to your three word Cribl Cloud org id, and the port you configured in the Cribl OpenTelemetry Source
+exporters:
+  otlphttp/cribl:
+    endpoint: "http://default.main.your-org-id.cribl.cloud:20010"
+    tls:
+      insecure: false
+      insecure_skip_verify: true
+
+service:
+  pipelines:
+    logs:
+      exporters: [opensearch, debug,  otlphttp/cribl]
+    traces:
+      exporters: [spanmetrics, otlphttp/cribl]
+    metrics:
+      exporters: [otlphttp/prometheus, debug, otlphttp/cribl]
