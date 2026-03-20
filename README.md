@@ -1,4 +1,4 @@
-# goat-tlp
+# goat-tlp 🐐 
 A small pasture of utilities for navigating OpenTelemetry and Cribl
 
 - [collector-receiver-via-ngrok](./collector-receiver-via-ngrok)  - run a local OpenTelemetry Collector and expose it via ngrok so external senders (like Cribl) can write OTLP traffic, useful for otlp spec & integration testing
